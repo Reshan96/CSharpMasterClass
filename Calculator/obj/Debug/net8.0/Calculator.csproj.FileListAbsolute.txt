@@ -1,0 +1,14 @@
+D:\Learn\C#MasterClass\MyCode\ToDoList\Calculator\bin\Debug\net8.0\Calculator.exe
+D:\Learn\C#MasterClass\MyCode\ToDoList\Calculator\bin\Debug\net8.0\Calculator.deps.json
+D:\Learn\C#MasterClass\MyCode\ToDoList\Calculator\bin\Debug\net8.0\Calculator.runtimeconfig.json
+D:\Learn\C#MasterClass\MyCode\ToDoList\Calculator\bin\Debug\net8.0\Calculator.dll
+D:\Learn\C#MasterClass\MyCode\ToDoList\Calculator\bin\Debug\net8.0\Calculator.pdb
+D:\Learn\C#MasterClass\MyCode\ToDoList\Calculator\obj\Debug\net8.0\Calculator.GeneratedMSBuildEditorConfig.editorconfig
+D:\Learn\C#MasterClass\MyCode\ToDoList\Calculator\obj\Debug\net8.0\Calculator.AssemblyInfoInputs.cache
+D:\Learn\C#MasterClass\MyCode\ToDoList\Calculator\obj\Debug\net8.0\Calculator.AssemblyInfo.cs
+D:\Learn\C#MasterClass\MyCode\ToDoList\Calculator\obj\Debug\net8.0\Calculator.csproj.CoreCompileInputs.cache
+D:\Learn\C#MasterClass\MyCode\ToDoList\Calculator\obj\Debug\net8.0\Calculator.dll
+D:\Learn\C#MasterClass\MyCode\ToDoList\Calculator\obj\Debug\net8.0\refint\Calculator.dll
+D:\Learn\C#MasterClass\MyCode\ToDoList\Calculator\obj\Debug\net8.0\Calculator.pdb
+D:\Learn\C#MasterClass\MyCode\ToDoList\Calculator\obj\Debug\net8.0\Calculator.genruntimeconfig.cache
+D:\Learn\C#MasterClass\MyCode\ToDoList\Calculator\obj\Debug\net8.0\ref\Calculator.dll

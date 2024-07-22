@@ -1,5 +1,5 @@
 ﻿var names = new Names();
-var path = names.BuildFilePath();
+var path = new FilePathBuilder().Build();
 var stringsTextualRepository = new StringsTextualRepository();
 
 
@@ -19,8 +19,17 @@ else
     stringsTextualRepository.Write(path, names.All);
 }
 
+Console.WriteLine(new NamesFormatter().Format(names.All));
+Console.ReadKey();
 
 
+class FilePathBuilder()
+{
+    public string Build()
+    {
+        return "names.txt";
+    }
+}
 class NamesValidator
 {
     public bool IsValid(string name)
@@ -29,6 +38,14 @@ class NamesValidator
                name.Length < 25 &&
                char.IsUpper(name[0]) &&
                name.All(char.IsLetter);
+    }
+}
+
+class NamesFormatter()
+{
+    public string Format(List<string> names)
+    {
+        return string.Join(Environment.NewLine, names);
     }
 }
 
@@ -53,18 +70,7 @@ class Names
         }
     }
 
-    public string BuildFilePath()
-    {
-        return "names.txt";
-    }
-
-    public string Format()
-    {
-        return string.Join(Environment.NewLine, All);
-    }
-
 }
-
 
 class StringsTextualRepository
 {

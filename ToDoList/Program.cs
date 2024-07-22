@@ -1,34 +1,98 @@
-﻿// See https://aka.ms/new-console-template for more information
-//Console.WriteLine("Hello!");
-//Console.WriteLine("[S]ee all todos");
-//Console.WriteLine("[A]dd a todo");
-//Console.WriteLine("[R]emove a Todo");
-//Console.WriteLine("[E]xit");
-BuildHelloString();
+﻿
+using System.Xml.Linq;
 
-List<string> GetOnlyUpperCaseWords(List<string> words)
+var dog1 = new Dog("Lucky", 25);
+var dog2 = new Dog("Lucy", 4);
+dog1.Name = "Brower";
+
+
+dog1.Describe();
+dog2.Describe();
+
+public static class Cat
 {
-    var result = new List<string>(words);
+    private static string _name;
+    private static string _breed;
 
-
-    foreach (var word in words)
+    public static DateTime GetDate()
     {
+        return DateTime.Now;
+    }
 
-        Console.WriteLine(word);
 
-        foreach (var character in word)
+    public static string Describe() => $"This dog named {_name}, it's a {_breed} cat.";
+
+}
+
+public class Dog
+{
+    private string _name;
+    private string _breed;
+    private int _weight;
+    private DateTime _date;
+
+    public DateTime Date
+    {
+        get
         {
-            if (!char.IsUpper(character))
+            return _date;
+        }
+        set
+        {
+            if (value.Year == DateTime.Now.Day)
             {
-                result.RemoveAll((e)=>e == word);
-                Console.WriteLine(character);
-                continue;
+                _date = value;
             }
         }
     }
 
-    return result;
+    public static DateTime GetDate()
+    {
+        return DateTime.Now;
+    }
 
+    public Dog(string name, string breed, int weight)
+    {
+        _name = name;
+        _breed = breed;
+        _weight = weight;
+    }
+
+    public Dog(string name, int weight, string breed = "mixed-breed")
+    {
+        _name = name;
+        _breed = breed;
+        _weight = weight;
+    }
+
+    public string Name
+    {
+        get
+        {
+            return _name;
+        }
+        set
+        {
+            _name = value;
+        }
+    }
+
+    public string Breed
+    {
+        get => _breed;
+        private set => _breed = value;
+    }
+
+    public string Describe() => $"This dog named {_name}, it's a {_breed}, and it weighs {_weight} kilograms, so it's a {GetWeightClass()} dog.";
+
+
+    private string GetWeightClass()
+    {
+        if (_weight < 5)
+            return "tiny";
+        if (_weight >= 30)
+            return "large";
+
+        return "medium";
+    }
 }
-
-Console.ReadKey();

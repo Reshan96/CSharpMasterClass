@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Learn\\C#MasterClass\\MyCode\\ToDoList\\ToDoList\\ToDoList.csproj",
+      "projectUniqueName": "D:\\Learn\\C#MasterClass\\MyCode\\ToDoList\\ToDoList.csproj",
       "projectName": "ToDoList",
-      "projectPath": "D:\\Learn\\C#MasterClass\\MyCode\\ToDoList\\ToDoList\\ToDoList.csproj",
+      "projectPath": "D:\\Learn\\C#MasterClass\\MyCode\\ToDoList\\ToDoList.csproj",
       "packagesPath": "C:\\Users\\reshan.d\\.nuget\\packages\\",
-      "outputPath": "D:\\Learn\\C#MasterClass\\MyCode\\ToDoList\\ToDoList\\obj\\",
+      "outputPath": "D:\\Learn\\C#MasterClass\\MyCode\\ToDoList\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\reshan.d\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -29,7 +29,11 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://artifacts.creativesoftware.com/api/nuget/DIPS-3rdParty": {},
+        "https://artifacts.creativesoftware.com/api/nuget/DIPS-Dev": {},
+        "https://artifacts.creativesoftware.com/api/nuget/DIPS-Nuget": {},
+        "https://artifacts.creativesoftware.com/artifactory/api/nuget/nuget-remote": {}
       },
       "frameworks": {
         "net8.0": {
@@ -67,7 +71,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

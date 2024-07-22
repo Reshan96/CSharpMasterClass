@@ -1,4 +1,27 @@
-﻿class NamesValidator
+﻿var names = new Names();
+var path = names.BuildFilePath();
+var stringsTextualRepository = new StringsTextualRepository();
+
+
+if (File.Exists(path))
+{
+    Console.WriteLine("Names file already exists. Loading Names.");
+    var stringsFromFile = stringsTextualRepository.Read(path);
+    names.AddNames(stringsFromFile);
+}
+else
+{
+    Console.WriteLine("Names File does not exist yet");
+    names.AddName("John");
+    names.AddName("not a valid name");
+    names.AddName("Claire");
+    names.AddName("123 definitely not a valid name");
+    stringsTextualRepository.Write(path, names.All);
+}
+
+
+
+class NamesValidator
 {
     public bool IsValid(string name)
     {
@@ -11,16 +34,35 @@
 
 class Names
 {
-    private List<string> _names = new List<string>();
-    private readonly NamesValidator _namesValidator = new NamesValidator();
+    public List<string> All { get; } = new List<string>();
+    private readonly NamesValidator _namesValidator = new();
+
+    public void AddNames(List<string> stringsFromFile)
+    {
+        foreach (var name in stringsFromFile)
+        {
+            AddName(name);
+        }
+    }
 
     public void AddName(string name)
     {
         if (_namesValidator.IsValid(name))
         {
-            _names.Add(name);
+            All.Add(name);
         }
     }
+
+    public string BuildFilePath()
+    {
+        return "names.txt";
+    }
+
+    public string Format()
+    {
+        return string.Join(Environment.NewLine, All);
+    }
+
 }
 
 

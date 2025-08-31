@@ -1,7 +1,23 @@
-﻿var pizza = new Pizza();
+﻿
+var pizza = new Pizza();
 pizza.AddIngredient(new Cheddar());
 pizza.AddIngredient(new Tomato());
 pizza.AddIngredient(new Dough());
+Console.WriteLine(pizza.DescribePizza());
+
+
+// Accessing public members of Ingredient class from Cheddar class
+var cheddar = new Cheddar();
+cheddar.PublicField = 10;
+
+var Ingredient = new Ingredient { PublicField = 5 };
+
+Console.WriteLine(Ingredient.PublicField); //5
+Console.WriteLine(cheddar.PublicField); //10
+
+
+
+Console.ReadKey();
 
 
 public class Pizza
@@ -20,8 +36,9 @@ public class Pizza
 
 }
 
-public class  Ingredient()
+public class Ingredient()
 {
+    public int PublicField { get; set; }
     public string PublicMethod() => "This method is public for classes inherited from Ingredient";
 }
 
@@ -31,7 +48,7 @@ public class Cheddar : Ingredient
     public int AgedForMonths { get; }
     public void UseMethodFromBaseClass()
     {
-       Console.WriteLine(PublicMethod());   
+        Console.WriteLine(PublicMethod());
     }
 }
 
@@ -42,7 +59,7 @@ public class Tomato : Ingredient
 
 }
 
-public class Dough: Ingredient
+public class Dough : Ingredient
 {
     public string Name => "Dough";
     public int WeightInGrams { get; }

@@ -1,15 +1,17 @@
 ﻿var numbers = new List<int> { 1, 4, 6, -1, 12, 44, -8, -19 };
-bool shallAddPositiveOnly = false;
+bool shallAddPositiveOnly = true;
 
 int sum;
 NumberCalcultor calc = shallAddPositiveOnly ? new PositiveNumberCalcultor() : new NumberCalcultor();
 sum = calc.Calculate(numbers);
 
 Console.WriteLine($"The sum is: {sum}");
+Console.WriteLine($"The total is: {calc.Total}");
 Console.ReadLine();
 
 public class NumberCalcultor
 {
+    public virtual int Total { get; } = 10;
     public virtual int Calculate(List<int> numberList)
     {
 
@@ -28,6 +30,8 @@ public class NumberCalcultor
 
 public class PositiveNumberCalcultor: NumberCalcultor
 {
+    public override int Total { get;} = 20;
+
     protected override bool ShallBeAdded(int number)
     {
         return number > 0;

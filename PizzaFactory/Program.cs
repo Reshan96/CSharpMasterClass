@@ -16,6 +16,12 @@ Console.WriteLine(Ingredient.PublicField); //5
 Console.WriteLine(cheddar.PublicField); //10
 
 
+// Explicit type of the base class
+Ingredient ingredient = new Cheddar();
+Ingredient ingredient2 = new Tomato();
+Console.WriteLine(ingredient.Name); // ingredient is type of Ingredient not the type of cheddar. In compile time it does not know which type the object will become
+Console.WriteLine(ingredient.CommonName); // while common name is virtual it is still not updates in this case since in Cheddar it is not overriden.
+Console.WriteLine(ingredient2.CommonName); // while common name is virtual it is still not updates in this case since in Cheddar it is not overriden.
 
 Console.ReadKey();
 
@@ -38,6 +44,8 @@ public class Pizza
 
 public class Ingredient()
 {
+    public string Name => "Generic ingredient";
+    public virtual string CommonName { get; set; } = "Common ingredient name";
     public int PublicField { get; set; }
     public string PublicMethod() => "This method is public for classes inherited from Ingredient";
 }
@@ -45,6 +53,7 @@ public class Ingredient()
 public class Cheddar : Ingredient
 {
     public string Name => "Cheddar cheese";
+    public string CommonName { get; set; } = "Cheddar cheese common name";
     public int AgedForMonths { get; }
     public void UseMethodFromBaseClass()
     {
@@ -55,6 +64,7 @@ public class Cheddar : Ingredient
 public class Tomato : Ingredient
 {
     public string Name => "Tomato sauce";
+    public override string CommonName { get; set; } = "Tomato sauce common name";
     public int quantityInGrams { get; }
 
 }
@@ -62,5 +72,7 @@ public class Tomato : Ingredient
 public class Dough : Ingredient
 {
     public string Name => "Dough";
+    public override string CommonName { get; set; } = "Dough common name";
+
     public int WeightInGrams { get; }
 }

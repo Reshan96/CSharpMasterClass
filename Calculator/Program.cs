@@ -1,73 +1,35 @@
-﻿Console.WriteLine("Hello!");
-Console.WriteLine("Input the first number:");
-var input1 = Console.ReadLine();
-var number1 = int.Parse(input1);
+﻿var numbers = new List<int> { 1, 4, 6, -1, 12, 44, -8, -19 };
+bool shallAddPositiveOnly = false;
 
-Console.WriteLine("Input the second number:");
-var input2 = Console.ReadLine();
-var number2 = int.Parse(input2);
+int sum;
+NumberCalcultor calc = shallAddPositiveOnly ? new PositiveNumberCalcultor() : new NumberCalcultor();
+sum = calc.Calculate(numbers);
 
-Console.WriteLine("What do you want to do with those numbers?\r\n[A]dd\r\n[S]ubtract\r\n[M]ultiply\r\n");
-var action = Console.ReadLine();
+Console.WriteLine($"The sum is: {sum}");
+Console.ReadLine();
 
-action = action?.ToUpper();
-
-if (action is not ("A" or "S" or "M"))
+public class NumberCalcultor
 {
-    Console.WriteLine("Invalid option");
-    Console.WriteLine("Press any key to close");
-    Console.ReadKey();
-    return;
-}
-else
-{
-        var arith = action == "A"? (Action.A): (action == "S" ? Action.S: Action.M);
-        CalculateAndPrint(number1, number2, arith);
-}
-
-
-void CalculateAndPrint(int number1, int number2, Action action)
-{
-    string operatorType;
-    int finalNum;
-
-    switch (action)
+    public virtual int Calculate(List<int> numberList)
     {
-        case Action.A:
+
+        int sum = 0;
+        foreach (var number in numberList)
         {
-            operatorType = "+";
-            finalNum = number1 + number2;
-            break;
+            if(ShallBeAdded(number))
+            sum += number;
+
         }
-        case Action.S:
-        {
-            operatorType = "-";
-            finalNum = number1 - number2; 
-            break;
-        }
-        case Action.M:
-        {
-            operatorType= "*";
-            finalNum = number1 * number2;
-            break;
-        }
-        default:
-            throw new Exception("Not implemented.");
+        return sum;
     }
-            
-     
-    Console.WriteLine("{0}{1}{2} = {3}",number1,operatorType,number2,finalNum);
-    Console.WriteLine("num" + number1 + "num2" + number2);
-    Console.WriteLine("Press any key to close");
-    Console.ReadKey();
+
+    protected virtual bool ShallBeAdded(int number) => true;
 }
 
-
-
-enum Action
+public class PositiveNumberCalcultor: NumberCalcultor
 {
-    A,
-    S,
-    M
+    protected override bool ShallBeAdded(int number)
+    {
+        return number > 0;
+    }
 }
-

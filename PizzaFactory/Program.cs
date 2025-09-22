@@ -50,6 +50,7 @@ public class Ingredient()
     public string PublicMethod() => "This method is public for classes inherited from Ingredient";
 }
 
+
 public class Cheddar : Ingredient
 {
     public string Name => "Cheddar cheese";

@@ -54,10 +54,17 @@ public abstract class VitosIngredient
     public virtual string CommonName { get; set; } = "Common ingredient name";
     public int PublicField { get; set; }
     public string PublicMethod() => "This method is public for classes inherited from Ingredient";
+    public abstract void Prepare();
+}
+
+public abstract class Cheese: VitosIngredient
+{
+    public Cheese(int toppingPrice): base(toppingPrice) { }
+    //no need of overriding the abstract method from base class, since this is also an abstract class
 }
 
 
-public class VitosCheddar : VitosIngredient
+public class VitosCheddar : Cheese
 {
     //to pass the topping price to ingredient contstructor we need to call base constructor.
     //Use the 'base' keyword to pass the data
@@ -73,6 +80,13 @@ public class VitosCheddar : VitosIngredient
     {
         Console.WriteLine(PublicMethod());
     }
+
+    public override void Prepare() //overriding the abstract method from VitosIngredient class
+    {
+        Console.WriteLine("Preparing cheddar");
+    }
+
+
 }
 
 public class VitosTomato : VitosIngredient
@@ -86,6 +100,11 @@ public class VitosTomato : VitosIngredient
     public override string CommonName { get; set; } = "Tomato sauce common name";
     public int quantityInGrams { get; }
 
+    public override void Prepare()
+    {
+        throw new NotImplementedException();
+    }
+
 }
 
 public class VitosDough : VitosIngredient
@@ -98,4 +117,9 @@ public class VitosDough : VitosIngredient
     public override string CommonName { get; set; } = "Dough common name";
 
     public int WeightInGrams { get; }
+
+    public override void Prepare()
+    {
+        throw new NotImplementedException();
+    }
 }

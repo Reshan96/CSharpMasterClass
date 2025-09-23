@@ -64,7 +64,7 @@ public abstract class Cheese: VitosIngredient
 }
 
 
-public sealed class VitosCheddar : Cheese
+public  class VitosCheddar : Cheese
 {
     //to pass the topping price to ingredient contstructor we need to call base constructor.
     //Use the 'base' keyword to pass the data

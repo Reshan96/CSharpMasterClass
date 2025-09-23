@@ -11,9 +11,9 @@ public static class RandomPizzaGenerator
     
 }
 
-//public class RandomPizzaFactorySelector: RandomPizzaGenerator
+//public static class RandomPizzaFactorySelector : RandomPizzaGenerator
 //{
-            //static class cannot be inherited therefore it is implicitly sealed
+//    static class cannot be inherited therefore it is implicitly sealed
 //}
 
 public class VitosPizzaFactory

@@ -1,13 +1,20 @@
 ﻿
 using PizzaFactory;
+using PizzaFactory.Extensions;
 
 
 //var randomPizzaGenerator = new RandomPizzaGenerator(); //cannot instantiate a static class
-RandomPizzaGenerator.GeneratePizza();
+//RandomPizzaGenerator.GeneratePizza();
 
-var vitosPizza = new VitosPizzaFactory();
+//var vitosPizza = new VitosPizzaFactory();
+//vitosPizza.makePizza();
 
-vitosPizza.makePizza();
+string multiline = @"this is
+a multi
+line";
+
+Console.WriteLine(multiline.CountNewLines());
+
 
 //var pizza = new Pizza();
 //pizza.AddIngredient(new Cheddar());
@@ -33,7 +40,7 @@ vitosPizza.makePizza();
 //Console.WriteLine(ingredient.CommonName); // while common name is virtual it is still not updates in this case since in Cheddar it is not overriden.
 //Console.WriteLine(ingredient2.CommonName); // while common name is virtual it is still not updates in this case since in Cheddar it is not overriden.
 
-//Console.ReadKey();
+Console.ReadKey();
 
 
 public class Pizza

@@ -1,0 +1,100 @@
+﻿namespace PizzaFactory;
+
+public class VitosPizzaFactory
+{
+    public void makePizza()
+    {
+
+        var pizza = new VitosPizza();
+        pizza.AddIngredient(new VitosCheddar(10, 12));
+        pizza.AddIngredient(new VitosTomato(15));
+        pizza.AddIngredient(new VitosDough(25));
+        Console.WriteLine(pizza.DescribePizza());
+
+        VitosIngredient ingre = new VitosCheddar(10, 12);
+
+        Console.WriteLine("object:" + ingre is object);
+        Console.WriteLine("object:" + (ingre is VitosIngredient));
+        Console.WriteLine("object:" + (ingre is VitosCheddar));
+        Console.WriteLine("object:" + (ingre is VitosDough));
+
+        double d = 10.001;
+
+        Console.ReadKey();
+    }
+}
+
+
+public class VitosPizza
+{
+    private List<VitosIngredient> Ingredients { get; } = new List<VitosIngredient>();
+    public void AddIngredient(VitosIngredient ingredient)
+    {
+        Ingredients.Add(ingredient);
+    }
+
+    public string DescribePizza()
+    {
+        //var ingredientNames = Ingredients.Select(i => i.Name);
+        return $"This pizza has the following ingredients: {string.Join(", ", Ingredients)}";
+    }
+
+}
+
+public class VitosIngredient
+{
+    public VitosIngredient(int toppingPrize)
+    {
+        Console.WriteLine("Ingredient class");
+        prizeIfAddedAsTopping = toppingPrize;
+    }
+    public int prizeIfAddedAsTopping { get; }
+    public string Name => "Generic ingredient";
+    public virtual string CommonName { get; set; } = "Common ingredient name";
+    public int PublicField { get; set; }
+    public string PublicMethod() => "This method is public for classes inherited from Ingredient";
+}
+
+
+public class VitosCheddar : VitosIngredient
+{
+    //to pass the topping price to ingredient contstructor we need to call base constructor.
+    //Use the 'base' keyword to pass the data
+    public VitosCheddar(int toppingPrice, int ageMonths) : base(toppingPrice)
+    {
+        AgedForMonths = ageMonths;
+        Console.WriteLine("Cheddar constructor");
+    }
+    public string Name => "Cheddar cheese";
+    public string CommonName { get; set; } = "Cheddar cheese common name";
+    public int AgedForMonths { get; }
+    public void UseMethodFromBaseClass()
+    {
+        Console.WriteLine(PublicMethod());
+    }
+}
+
+public class VitosTomato : VitosIngredient
+{
+    public VitosTomato(int topping) : base(topping)
+    {
+
+    }
+
+    public string Name => "Tomato sauce";
+    public override string CommonName { get; set; } = "Tomato sauce common name";
+    public int quantityInGrams { get; }
+
+}
+
+public class VitosDough : VitosIngredient
+{
+    public VitosDough(int topping) : base(topping)
+    {
+
+    }
+    public string Name => "Dough";
+    public override string CommonName { get; set; } = "Dough common name";
+
+    public int WeightInGrams { get; }
+}

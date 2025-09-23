@@ -1,29 +1,35 @@
 ﻿
-var pizza = new Pizza();
-pizza.AddIngredient(new Cheddar());
-pizza.AddIngredient(new Tomato());
-pizza.AddIngredient(new Dough());
-Console.WriteLine(pizza.DescribePizza());
+using PizzaFactory;
+
+var vitosPizza = new VitosPizzaFactory();
+
+vitosPizza.makePizza();
+
+//var pizza = new Pizza();
+//pizza.AddIngredient(new Cheddar());
+//pizza.AddIngredient(new Tomato());
+//pizza.AddIngredient(new Dough());
+//Console.WriteLine(pizza.DescribePizza());
 
 
-// Accessing public members of Ingredient class from Cheddar class
-var cheddar = new Cheddar();
-cheddar.PublicField = 10;
+//// Accessing public members of Ingredient class from Cheddar class
+//var cheddar = new Cheddar();
+//cheddar.PublicField = 10;
 
-var Ingredient = new Ingredient { PublicField = 5 };
+//var Ingredient = new Ingredient { PublicField = 5 };
 
-Console.WriteLine(Ingredient.PublicField); //5
-Console.WriteLine(cheddar.PublicField); //10
+//Console.WriteLine(Ingredient.PublicField); //5
+//Console.WriteLine(cheddar.PublicField); //10
 
 
-// Explicit type of the base class
-Ingredient ingredient = new Cheddar();
-Ingredient ingredient2 = new Tomato();
-Console.WriteLine(ingredient.Name); // ingredient is type of Ingredient not the type of cheddar. In compile time it does not know which type the object will become
-Console.WriteLine(ingredient.CommonName); // while common name is virtual it is still not updates in this case since in Cheddar it is not overriden.
-Console.WriteLine(ingredient2.CommonName); // while common name is virtual it is still not updates in this case since in Cheddar it is not overriden.
+//// Explicit type of the base class
+//Ingredient ingredient = new Cheddar();
+//Ingredient ingredient2 = new Tomato();
+//Console.WriteLine(ingredient.Name); // ingredient is type of Ingredient not the type of cheddar. In compile time it does not know which type the object will become
+//Console.WriteLine(ingredient.CommonName); // while common name is virtual it is still not updates in this case since in Cheddar it is not overriden.
+//Console.WriteLine(ingredient2.CommonName); // while common name is virtual it is still not updates in this case since in Cheddar it is not overriden.
 
-Console.ReadKey();
+//Console.ReadKey();
 
 
 public class Pizza

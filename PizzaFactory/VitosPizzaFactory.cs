@@ -64,7 +64,7 @@ public abstract class Cheese: VitosIngredient
 }
 
 
-public class VitosCheddar : Cheese
+public sealed class VitosCheddar : Cheese
 {
     //to pass the topping price to ingredient contstructor we need to call base constructor.
     //Use the 'base' keyword to pass the data
@@ -81,10 +81,8 @@ public class VitosCheddar : Cheese
         Console.WriteLine(PublicMethod());
     }
 
-    public override void Prepare() //overriding the abstract method from VitosIngredient class
-    {
-        Console.WriteLine("Preparing cheddar");
-    }
+    public sealed override void Prepare() => Console.WriteLine("Preparing cheddar"); //only override methods can be sealed 
+    
 
 
 }

@@ -12,6 +12,7 @@ public class VitosPizzaFactory
         Console.WriteLine(pizza.DescribePizza());
 
         VitosIngredient ingre = new VitosCheddar(10, 12);
+        // VitosIngredient ingre_2 = new VitosIngredient(10, 12); //cannot be instantiated since this is an abstract concept
 
         Console.WriteLine("object:" + ingre is object);
         Console.WriteLine("object:" + (ingre is VitosIngredient));
@@ -41,7 +42,7 @@ public class VitosPizza
 
 }
 
-public class VitosIngredient
+public abstract class VitosIngredient
 {
     public VitosIngredient(int toppingPrize)
     {

@@ -1,5 +1,21 @@
 ﻿namespace PizzaFactory;
 
+
+public static class RandomPizzaGenerator
+{
+    public static void GeneratePizza() //static classes only contains static methods. 
+    {
+        var factory = new VitosPizzaFactory();
+        factory.makePizza();
+    }
+    
+}
+
+//public class RandomPizzaFactorySelector: RandomPizzaGenerator
+//{
+            //static class cannot be inherited therefore it is implicitly sealed
+//}
+
 public class VitosPizzaFactory
 {
     public void makePizza()

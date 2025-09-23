@@ -1,6 +1,10 @@
 ﻿
 using PizzaFactory;
 
+
+//var randomPizzaGenerator = new RandomPizzaGenerator(); //cannot instantiate a static class
+RandomPizzaGenerator.GeneratePizza();
+
 var vitosPizza = new VitosPizzaFactory();
 
 vitosPizza.makePizza();

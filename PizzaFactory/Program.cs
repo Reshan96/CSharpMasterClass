@@ -2,6 +2,8 @@
 using PizzaFactory;
 using PizzaFactory.Extensions;
 
+using System.Collections;
+
 
 //var randomPizzaGenerator = new RandomPizzaGenerator(); //cannot instantiate a static class
 //RandomPizzaGenerator.GeneratePizza();
@@ -14,6 +16,23 @@ a multi
 line";
 
 Console.WriteLine(multiline.CountNewLines());
+
+List<int> list = [1,7,9,0];
+
+if(list.Count == 0)
+{
+    Console.WriteLine("list is empty");
+    return;
+}
+var results = new List<int>();
+
+for(int i=0; i< list.Count; i+=2)
+{
+       results.Add(list[i]);
+}
+
+foreach(int i in results)
+Console.WriteLine(i);
 
 
 //var pizza = new Pizza();

@@ -42,6 +42,10 @@ bld/
 # Visual Studio 2017 auto generated files
 Generated\ Files/
 
+# Ignore Debug build outputs
+**/bin/Debug/net8.0/
+**/obj/Debug/net8.0/
+
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
